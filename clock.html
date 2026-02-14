@@ -233,6 +233,20 @@
         }
 
         const wrongStartTime = new Date(realTime.getTime() + (offsetToUse * 60 * 60 * 1000) + (minuteOffset * 60 * 1000));
+
+        let secondsElapsed = 0;
+         function updateClock() {
+            // Add seconds to our wrong starting time
+            const currentWrongTime = new Date(wrongStartTime.getTime() + (secondsElapsed * 1000));
+            
+            const hours = String(currentWrongTime.getHours()).padStart(2, '0');
+            const minutes = String(currentWrongTime.getMinutes()).padStart(2, '0');
+            const seconds = String(currentWrongTime.getSeconds()).padStart(2, '0');
+            
+            document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('wrongCount').textContent = secondsElapsed;
+            
+            secondsElapsed++;}
         
         </script>
     </body>
