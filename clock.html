@@ -146,6 +146,95 @@
             50% { transform: scale(1); }
         }
         
-        .particles
+        .particles { 
+            position: fixed;
+            top: 0;
+            left: 0; 
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-particle 15s infinite;
+        }
+
+        @keyframes float-particle {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-100vh) translateX(50px);
+            }
+        }
+        </style>
     </head>
+    <body>
+        <div class="particles" id="particles"></div>
+        <div class="container">
+              <h1>⏰ THE MOST ACCURATE CLOCK</h1>
+              <div class="subtitle">100% Precision. Zero Doubts. Absolute Certainty</div>
+              <div class="time-display" id="time">--:--:--</div>
+              <div class="confidence-meter">
+                <div class="confidence-bar">
+                    <div class="confidence-fill">
+                    </div>
+                </div>
+              </div>
+
+              <div class="quote" id="quote">"Trust me, I'm a clock."</div>
+              <div class="stats">
+                <div class="stat">
+                    <div class="stat-label">Accuracy</div>
+                    <div class="stat-value">>∞%</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Seconds Running</div>
+                    <div class="stat-value" id="wrongCount">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Doubt</div>
+                    <div class="stat-value">0.0000%</div>
+                </div>
+              </div>
+              <div class="footer">
+                Made with <span class="heart">♥</span> for Hack Club
+              </div>
+        </div>
+        <script>
+            const quotes = [
+            "This is definitely the correct time.",
+            "I've triple-checked. This is accurate.",
+            "Scientists hate how accurate I am.",
+            "Trust me, I'm extremely confident about this.",
+            "This time is certified by... me.",
+            "I've never been more sure of anything.",
+            "Atomic clocks wish they were this good.",
+            "This is the objectively correct time.",
+            "I have a PhD in telling time. (I don't.)",
+            "99.9% of the time, I'm right 100% of the time.",
+            "My calculations are impeccable. Definitely.",
+            "I'm basically a Swiss watch. But better.",
+            "Time is relative. And I'm relatively confident.",
+            "Greenwich Mean Time? More like Greenwich SEEMS time.",
+            "I once synchronized with an atomic clock. We agreed to disagree."
+        ];
+        const realTime = new Date();
+        const hourOffset = Math.floor(Math.random() * 12) - 6;
+        const minuteOffset = Math.floor(Math.random() * 60) -30;
+
+        let offsetToUse = hourOffset;
+        if (offsetToUse === 0 && minuteOffset === 0) {
+            offsetToUse = 5;
+        }
+
+        const wrongStartTime = new Date(realTime.getTime() + (offsetToUse * 60 * 60 * 1000) + (minuteOffset * 60 * 1000));
+        
+        </script>
+    </body>
+
 </html>
