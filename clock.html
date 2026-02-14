@@ -18,22 +18,24 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
             color: white;
             overflow: hidden;
-    }
-    .container {
-        text-align: center;
-        padding: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border-radius: 30px;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        max-width: 600px;
-        animation: float 3s ease-in-out infinite;
-    }
-    
-       @keyframes float {
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 600px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
@@ -44,6 +46,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             letter-spacing: 2px;
         }
+
         .subtitle {
             font-size: 1.2em;
             margin-bottom: 40px;
@@ -62,13 +65,13 @@
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% {transform: scale(1.05); }
+            50% { transform: scale(1.05); }
         }
 
         .confidence-meter {
             margin: 30px 0;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 15px;
         }
 
@@ -85,7 +88,7 @@
             height: 100%;
             width: 100%;
             background: linear-gradient(90deg, #ffd700, #ffed4e);
-            animation:shine 2s linear infinite;
+            animation: shine 2s linear infinite;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -125,6 +128,7 @@
             opacity: 0.8;
             margin-bottom: 5px;
         }
+
         .stat-value {
             font-size: 1.5em;
             font-weight: bold;
@@ -135,26 +139,28 @@
             font-size: 1.1em;
             opacity: 0.9;
         }
+
         .heart {
             color: #ff6b6b;
             animation: heartbeat 1.5s ease-in-out infinite;
         }
 
         @keyframes heartbeat {
-            0%, 100% {transform: scale(1); }
-            25% {transform: scale(1.2); }
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
             50% { transform: scale(1); }
         }
-        
-        .particles { 
+
+        .particles {
             position: fixed;
             top: 0;
-            left: 0; 
+            left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
             z-index: -1;
         }
+
         .particle {
             position: absolute;
             background: white;
@@ -171,42 +177,53 @@
                 transform: translateY(-100vh) translateX(50px);
             }
         }
-        </style>
-    </head>
-    <body>
-        <div class="particles" id="particles"></div>
-        <div class="container">
-              <h1>⏰ THE MOST ACCURATE CLOCK</h1>
-              <div class="subtitle">100% Precision. Zero Doubts. Absolute Certainty</div>
-              <div class="time-display" id="time">--:--:--</div>
-              <div class="confidence-meter">
-                <div class="confidence-bar">
-                    <div class="confidence-fill">
-                    </div>
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <h1>⏰ THE MOST ACCURATE CLOCK</h1>
+        <div class="subtitle">100% Precision. Zero Doubts. Absolute Certainty.</div>
+        
+        <div class="time-display" id="time">--:--:--</div>
+        
+        <div class="confidence-meter">
+            <div class="confidence-bar">
+                <div class="confidence-fill">
+                    💯 CONFIDENCE: 100%
                 </div>
-              </div>
-
-              <div class="quote" id="quote">"Trust me, I'm a clock."</div>
-              <div class="stats">
-                <div class="stat">
-                    <div class="stat-label">Accuracy</div>
-                    <div class="stat-value">>∞%</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-label">Seconds Running</div>
-                    <div class="stat-value" id="wrongCount">0</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-label">Doubt</div>
-                    <div class="stat-value">0.0000%</div>
-                </div>
-              </div>
-              <div class="footer">
-                Made with <span class="heart">♥</span> for Hack Club
-              </div>
+            </div>
         </div>
-        <script>
-            const quotes = [
+        
+        <div class="quote" id="quote">"Trust me, I'm a clock."</div>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-label">Accuracy</div>
+                <div class="stat-value">∞%</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Seconds Running</div>
+                <div class="stat-value" id="wrongCount">0</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Trust Level</div>
+                <div class="stat-value">MAXIMUM</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Doubt</div>
+                <div class="stat-value">0.0%</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Made with <span class="heart">♥</span> for Hack Club
+        </div>
+    </div>
+
+    <script>
+        const quotes = [
             "This is definitely the correct time.",
             "I've triple-checked. This is accurate.",
             "Scientists hate how accurate I am.",
@@ -223,20 +240,21 @@
             "Greenwich Mean Time? More like Greenwich SEEMS time.",
             "I once synchronized with an atomic clock. We agreed to disagree."
         ];
+
         const realTime = new Date();
         const hourOffset = Math.floor(Math.random() * 12) - 6;
-        const minuteOffset = Math.floor(Math.random() * 60) -30;
-
+        const minuteOffset = Math.floor(Math.random() * 60) - 30;
+        
         let offsetToUse = hourOffset;
         if (offsetToUse === 0 && minuteOffset === 0) {
             offsetToUse = 5;
         }
-
+        
         const wrongStartTime = new Date(realTime.getTime() + (offsetToUse * 60 * 60 * 1000) + (minuteOffset * 60 * 1000));
-
+        
         let secondsElapsed = 0;
-         function updateClock() {
-            // Add seconds to our wrong starting time
+
+        function updateClock() {
             const currentWrongTime = new Date(wrongStartTime.getTime() + (secondsElapsed * 1000));
             
             const hours = String(currentWrongTime.getHours()).padStart(2, '0');
@@ -246,9 +264,33 @@
             document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
             document.getElementById('wrongCount').textContent = secondsElapsed;
             
-            secondsElapsed++;}
-        
-        </script>
-    </body>
+            secondsElapsed++;
+            
+            if (secondsElapsed % 8 === 0) {
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                document.getElementById('quote').textContent = `"${randomQuote}"`;
+            }
+        }
 
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 5 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+        
+        createParticles();
+    </script>
+</body>
 </html>
